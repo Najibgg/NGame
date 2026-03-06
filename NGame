@@ -1,0 +1,31 @@
+import random
+import time
+
+class Horse:
+    name = ""
+    speed = 0
+
+    def __init__(self, name, speed):
+        self.name = name
+        self.speed = speed
+
+def race(horses):
+    distance = 100
+    while True:
+        for horse in horses:
+            horse.speed += random.randint(1, 5)
+            print(f"{horse.name} is at {horse.speed} meters")
+            if horse.speed >= distance:
+                print(f"{horse.name} wins!")
+                return
+        time.sleep(1)
+
+# Create horses
+horses = [
+    Horse("Lightning", 0),
+    Horse("Thunder", 0),
+    Horse("Starlight", 0)
+]
+
+# Start the race
+race(horses)
